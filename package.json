@@ -29,9 +29,4 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "vite": "^5.3.1"
   }
-  "scripts": {
-    "dev": "nodemon app.js",
-    "dbr": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
-    ///......
-  }
 }
