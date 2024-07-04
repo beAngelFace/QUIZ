@@ -2,17 +2,29 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Categoryies', {
+    await queryInterface.createTable('Datas', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      game: {
+      titleId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Items',
+          key: 'id',
+        },
+        allowNull: false,
+        onDelete: 'CASCADE',
+      },
+      question: {
         type: Sequelize.STRING
       },
-      special: {
+      answer: {
+        type: Sequelize.STRING
+      },
+      images: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -28,6 +40,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Categoryies');
+    await queryInterface.dropTable('Datas');
   }
 };

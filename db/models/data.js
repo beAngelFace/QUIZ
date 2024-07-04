@@ -4,14 +4,30 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Data extends Model {
-    static associate(models) {
-      this.belongsTo(models.Categoryie, { foreignKey: 'categoryId' })
+  
+    static associate({Item}) {
+      this.belongsTo(Item, { foreignKey: 'titleId' })
       }
   }
   Data.init({
-    categoryId: DataTypes.BIGINT,
-    question: DataTypes.BIGINT,
-    answer: DataTypes.BIGINT
+    titleId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Items',
+        key: 'id',
+      },
+      allowNull: false,
+      onDelete: 'CASCADE',
+    },
+    question: {
+      type: DataTypes.STRING
+    },
+    answer: {
+      type: DataTypes.STRING
+    },
+    images: {
+      type: DataTypes.STRING
+    },
   }, {
     sequelize,
     modelName: 'Data',
