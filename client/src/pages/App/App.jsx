@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { Routes, Link, Route } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import Game from "../Game/Game";
@@ -9,6 +10,7 @@ import Welcome from "../Welcome/Welcome";
 import "./App.css";
 
 function App() {
+  
   return (
     <>
       <div className="general">

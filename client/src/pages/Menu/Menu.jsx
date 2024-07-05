@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./Menu.css";
 
 function Menu() {
-
 
   return (
     <div className="menu">
@@ -13,7 +12,7 @@ function Menu() {
           <p>Кино</p>
         </div>
         </Link>
-        <Link to={'/menu/game/:id'}>
+        <Link to={`/menu/game/:${id}`}>
         <div className="one">
           <p>Игры</p>
         </div>
