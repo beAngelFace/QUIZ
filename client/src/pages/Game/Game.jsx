@@ -32,7 +32,7 @@ function Game() {
           <img className='imgr' src={game[currentQuestion]?.images}/>
           <div>{game[currentQuestion]?.question}</div>
           <input className="input"></input>
-          <button className='btn'>Проверить</button>
+          
          
           <button className='btn' onClick={()=> { 
             if (currentQuestion < game.length-1){
@@ -54,7 +54,7 @@ function Game() {
         >
           {game[currentQuestion]?.answer}
         </div>
-        <button
+        <button className="btn"
           onClick={() => {
             if (currentQuestion < game.length - 1) {
               setCurrentQuestion((prev) => prev + 1);

@@ -8,12 +8,12 @@ function Menu({theme}) {
   return (
     <div className="menu">
       <div className="game">
-        <Link to={`/game/${theme[0].id}`}>
+        <Link style={{textDecoration:"none", color: "white", fontSize:"25px"}} to={`/game/${theme[0].id}`}>
         <div className="one">
           <p>Игры</p>
         </div>
         </Link>
-        <Link to={`/game/${theme[1].id}`}>
+        <Link style={{textDecoration:"none", color: "white", fontSize:"25px"}} to={`/game/${theme[1].id}`}>
         <div className="one">
           <p>Угадай фильм "со спины"</p>
         </div>
