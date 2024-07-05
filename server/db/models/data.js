@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Data extends Model {
   
     static associate({Item}) {
-      this.belongsTo(Item, { foreignKey: 'titleId' })
+      // this.belongsTo(Item, { foreignKey: 'titleId' })
       }
   }
   Data.init({
@@ -31,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Data',
+    tableName: "Datas"
   });
   return Data;
 };
