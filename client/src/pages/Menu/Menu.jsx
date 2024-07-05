@@ -10,12 +10,12 @@ function Menu({theme}) {
       <div className="game">
         <Link to={`/game/${theme[0].id}`}>
         <div className="one">
-          <p>Кино</p>
+          <p>Игры</p>
         </div>
         </Link>
         <Link to={`/game/${theme[1].id}`}>
         <div className="one">
-          <p>Игры</p>
+          <p>Угадай фильм "со спины"</p>
         </div>
         </Link>
       </div>
