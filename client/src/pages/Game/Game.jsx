@@ -25,15 +25,20 @@ function Game() {
   };
 
   return (
-    <div className="main">
-      <div className="second">
-        <p>Викторина{id}</p>
-        <div>{game[currentQuestion]?.question}</div>
-        <input value={answer} onChange={handleAnswerChange}></input>
-        <button
-          onClick={() => {
-            if (answer === game[currentQuestion]?.answer) {
-              setStatusOfQuestion(true);
+
+      <div className="main">
+        <div className="second">
+          <p>Викторина{id}</p>
+          <img className='imgr' src={game[currentQuestion]?.images}/>
+          <div>{game[currentQuestion]?.question}</div>
+          <input className="input"></input>
+          <button className='btn'>Проверить</button>
+         
+          <button className='btn' onClick={()=> { 
+            if (currentQuestion < game.length-1){
+              setCurrentQuestion((prev)=> prev +1 )
+
+
             } else {
               alert("Ты ошибся");
             }
