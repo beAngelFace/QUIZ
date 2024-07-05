@@ -6,11 +6,13 @@ import axios from "axios";
 
 function Game() {
   const [game, setGame] = useState([]);
-  const[currentQuestion, setCurrentQuestion] = useState(0)
-  const {id} = useParams()
-  const navigate = useNavigate()
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [statusOfQustion, setStatusOfQuestion] = useState(false);
+  const [answer, setAnswer] = useState("");
+  const { id } = useParams();
+  const navigate = useNavigate();
   const fetchData = async () => {
-    const res = await axios.get("/api/game/"+ id );
+    const res = await axios.get("/api/game/" + id);
     setGame(res.data);
   };
 
@@ -18,22 +20,48 @@ function Game() {
     fetchData();
   }, []);
 
+  const handleAnswerChange = (event) => {
+    setAnswer(event.target.value);
+  };
+
   return (
-      <div className="main">
-        <div className="second">
-          <p>Викторина{id}</p>
-          <div>{game[currentQuestion]?.question}</div>
-          <input></input>
-          <button>Проверить</button>
-          <button onClick={()=> { 
-            if (currentQuestion < game.length-1){
-              setCurrentQuestion((prev)=> prev +1 )
+    <div className="main">
+      <div className="second">
+        <p>Викторина{id}</p>
+        <div>{game[currentQuestion]?.question}</div>
+        <input value={answer} onChange={handleAnswerChange}></input>
+        <button
+          onClick={() => {
+            if (answer === game[currentQuestion]?.answer) {
+              setStatusOfQuestion(true);
             } else {
-              navigate('/Menu')
+              alert("Ты ошибся");
             }
-            }}>Дальше</button>
+          }}
+        >
+          Проверить
+        </button>
+        <div
+          style={{
+            opacity: statusOfQustion ? 1 : 0,
+            transition: "opacity 0.7s ease-in-out",
+          }}
+        >
+          {game[currentQuestion]?.answer}
         </div>
+        <button
+          onClick={() => {
+            if (currentQuestion < game.length - 1) {
+              setCurrentQuestion((prev) => prev + 1);
+            } else {
+              navigate("/Menu");
+            }
+          }}
+        >
+          Дальше
+        </button>
       </div>
+    </div>
   );
 }
 
