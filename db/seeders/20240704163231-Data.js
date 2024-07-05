@@ -4,7 +4,8 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     
-     await queryInterface.bulkInsert('Data', [
+     await queryInterface.bulkInsert('Datas', [
+      //угадай игру
       {
         titleId: '1',
         question: 'Quuke 4, Halo, Doom 4, Wolfenstein?',

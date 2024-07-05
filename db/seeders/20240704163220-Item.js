@@ -4,7 +4,7 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
    
-     await queryInterface.bulkInsert('Item', [{
+     await queryInterface.bulkInsert('Items', [{
       title: 'Game',
       foto: 'https://s0.rbk.ru/v6_top_pics/media/img/8/03/756263441363038.jpg'
      },
