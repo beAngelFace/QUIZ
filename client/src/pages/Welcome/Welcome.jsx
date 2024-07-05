@@ -27,7 +27,7 @@ function Welcome() {
       <div className="div">
         <Link to={"/menu"}>
           <button className="button">
-            <p>Для начала выборы темы, нажми</p>
+          <p style={{fontSize: '30px',  color: '#f0f0f0',textShadow: '6px 6px 6px rgba(0, 0, 0, 0.5)'}}>Для начала игры, нажми</p>
           </button>
         </Link>
       </div>

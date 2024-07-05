@@ -1,19 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./Menu.css";
 
-function Menu() {
 
+function Menu({theme}) {
 
   return (
     <div className="menu">
       <div className="game">
-        <Link to={`/menu/game/:${id}`}>
+        <Link to={`/game/:${theme[0].id}`}>
         <div className="one">
           <p>Кино</p>
         </div>
         </Link>
-        <Link to={'/menu/game/:id'}>
+        <Link to={`/game/:${theme[1].id}`}>
         <div className="one">
           <p>Игры</p>
         </div>
