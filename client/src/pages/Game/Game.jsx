@@ -1,26 +1,37 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./Game.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Game() {
   const [game, setGame] = useState([]);
+  const[currentQuestion, setCurrentQuestion] = useState(0)
+  const {id} = useParams()
+  const navigate = useNavigate()
   const fetchData = async () => {
-    const res = await axios.get("/api/game");
+    const res = await axios.get("/api/game/"+ id );
     setGame(res.data);
   };
-  
+
   useEffect(() => {
     fetchData();
   }, []);
 
-  const { id } = useParams();
   return (
       <div className="main">
         <div className="second">
           <p>Викторина{id}</p>
-          <div>{game}</div>
+          <div>{game[currentQuestion]?.question}</div>
+          <input></input>
+          <button>Проверить</button>
+          <button onClick={()=> { 
+            if (currentQuestion < game.length-1){
+              setCurrentQuestion((prev)=> prev +1 )
+            } else {
+              navigate('/Menu')
+            }
+            }}>Дальше</button>
         </div>
       </div>
   );
