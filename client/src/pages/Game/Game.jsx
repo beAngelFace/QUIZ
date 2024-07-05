@@ -22,10 +22,12 @@ function Game() {
       <div className="main">
         <div className="second">
           <p>Викторина{id}</p>
+          <img className='imgr' src={game[currentQuestion]?.images}/>
           <div>{game[currentQuestion]?.question}</div>
-          <input></input>
-          <button>Проверить</button>
-          <button onClick={()=> { 
+          <input className="input"></input>
+          <button className='btn'>Проверить</button>
+         
+          <button className='btn' onClick={()=> { 
             if (currentQuestion < game.length-1){
               setCurrentQuestion((prev)=> prev +1 )
             } else {

@@ -22,7 +22,7 @@ function Welcome() {
           transition: "opacity 0.7s ease-in-out",
         }}
       >
-        Добро пожаловать на квиз
+        Добро пожаловать на квиз!
       </h1>
       <div className="div">
         <Link to={"/menu"}>
