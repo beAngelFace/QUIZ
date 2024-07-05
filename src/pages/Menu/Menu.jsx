@@ -1,13 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Menu.css";
-import Game from "../Game/Game";
 
 function Menu() {
+
+
   return (
     <div className="menu">
-      <p1>Играем</p1>
-      <Game ></Game>
-      <Game ></Game>
+      <div className="game">
+        <Link to={`/menu/game/:${id}`}>
+        <div className="one">
+          <p>Кино</p>
+        </div>
+        </Link>
+        <Link to={'/menu/game/:id'}>
+        <div className="one">
+          <p>Игры</p>
+        </div>
+        </Link>
+      </div>
     </div>
   );
 }

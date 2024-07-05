@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Main from "../Main/Main";
+import Menu from "../Menu/Menu";
 import "./Welcome.css";
 
 function Welcome() {
@@ -25,7 +25,7 @@ function Welcome() {
         Добро пожаловать на квиз
       </h1>
       <div className="div">
-        <Link to={"/main"}>
+        <Link to={"/menu"}>
           <button className="button">
             <p>Для начала выборы темы, нажми</p>
           </button>

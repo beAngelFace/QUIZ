@@ -6,7 +6,6 @@ import "./Header.css";
 function Header() {
   return (
     <div className="header">
-      
       <p>Наша навигационая панель</p>
     </div>
   );
